@@ -10,5 +10,5 @@ def payment():
 
 @app.route('/api/health')
 def health():
-    return jsonify("Healthy": True)
+    return jsonify({"Healthy": True})
 
