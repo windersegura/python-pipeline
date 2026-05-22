@@ -10,5 +10,9 @@ def payment():
 
 @app.route('/api/health')
 def health():
-    return jsonify({"Healthy": True})
+    return jsonify({"healthy": True})
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0',port=5000)
+
 
