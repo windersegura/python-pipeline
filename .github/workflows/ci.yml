@@ -19,5 +19,16 @@ jobs:
           pip install -r requirements.txt
       - run: |
           pytest
+  
+  deploy:
+    needs: ci
+    runs-on: ubuntu-24.04
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to railway
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: npx railway up
 
 
